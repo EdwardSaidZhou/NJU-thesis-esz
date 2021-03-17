@@ -28,9 +28,7 @@
 \urlstyle{same}
 \usepackage{lipsum}
 \usepackage[backend=biber,style=gb7714-2015,defernumbers=true,sortlocale=zh__pinyin,sorting=gb7714-2015]{biblatex}
-\addbibresource{articleandbook.bib}
-\addbibresource{online.bib}
-\addbibresource{bib3.bib}
+\addbibresource{bib.bib}
 \usepackage{scrextend}
 \deffootnote{1.5em}{1em}{%
   \makebox[1.5em][l]{\thefootnotemark}}
@@ -314,7 +312,7 @@
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{参考文献}
-%\nocite{*}
+\nocite{*}
 \printbibheading
 \defbibfilter{books}{type=book or type=incollection}
 \printbibliography[check=chinese,filter=books,heading=subbibliography,title={中文书籍},resetnumbers=true]
