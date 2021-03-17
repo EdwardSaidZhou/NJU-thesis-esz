@@ -28,7 +28,9 @@
 \urlstyle{same}
 \usepackage{lipsum}
 \usepackage[backend=biber,style=gb7714-2015,defernumbers=true,sortlocale=zh__pinyin,sorting=gb7714-2015]{biblatex}
-\addbibresource{bib.bib}
+\addbibresource{articleandbook.bib}
+\addbibresource{online.bib}
+\addbibresource{bib3.bib}
 \usepackage{scrextend}
 \deffootnote{1.5em}{1em}{%
   \makebox[1.5em][l]{\thefootnotemark}}
@@ -309,6 +311,24 @@
 \include{chapters/conclusion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}
+%\nocite{*}
+\printbibheading
+\defbibfilter{books}{type=book or type=incollection}
+\printbibliography[check=chinese,filter=books,heading=subbibliography,title={中文书籍},resetnumbers=true]
+\printbibliography[check=chinese,type=article,heading=subbibliography,title={中文论文},resetnumbers=true]
+\printbibliography[check=chinese,type=online,heading=subbibliography,title={中文网络资源},resetnumbers=true]
+\printbibliography[check=chinese,nottype=book,nottype=incollection,nottype=article,nottype=online,heading=subbibliography,title={中文其他资源},resetnumbers=true]
+\printbibliography[check=english,filter=books,heading=subbibliography,title={英文书籍},resetnumbers=true]
+\printbibliography[check=english,type=article,heading=subbibliography,title={英文论文},resetnumbers=true]
+\printbibliography[check=english,type=online,heading=subbibliography,title={英文网络资源},resetnumbers=true]
+\printbibliography[check=english,nottype=book,nottype=incollection,nottype=article,nottype=online,heading=subbibliography,title={英文其他资源},resetnumbers=true]
+
+%档案使用"manual"，Zotero中为“报告”，导出的bib修改institution为organization
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 致谢，应放在《结论》之后
 \begin{acknowledgement}
   首先感谢我的母亲韦春花对我的支持。其次感谢我的导师陈近南对我的精心指导和热心帮助。接下来，
@@ -319,42 +339,18 @@
 \end{acknowledgement}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{参考文献}
-\nocite{*}
-\printbibheading
-\printbibliography[check=chinese,type=article,heading=subbibliography,title={中文论文},resetnumbers=true]
-\printbibliography[check=chinese,nottype=article,nottype=online,heading=subbibliography,title={中文专著},resetnumbers=true]
-\printbibliography[check=chinese,type=online,heading=subbibliography,title={中文网络资源},resetnumbers=true]
-\printbibliography[check=english,type=article,heading=subbibliography,title={英文论文},resetnumbers=true]
-\printbibliography[check=english,nottype=article,nottype=online,heading=subbibliography,title={英文专著},resetnumbers=true]
-\printbibliography[check=english,type=online,heading=subbibliography,title={英文网络资源},resetnumbers=true]
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 书籍附件
 \backmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 作者简历与科研成果页，应放在backmatter之后
 \begin{resume}
-% 论文作者身份简介，一句话即可。
-\begin{authorinfo}
-\noindent 张三，从哪来，到哪去
-\end{authorinfo}
-% 论文作者教育经历列表，按日期从近到远排列，不包括将要申请的学位。
-\begin{education}
-\item[2016年9月 --- 2020年6月] 南京大学 \hfill 本科
-\end{education}
-% 论文作者在攻读学位期间所发表的文章的列表，按发表日期从近到远排列。
-\begin{publications}
-\item 您发的论文
-\end{publications}
-% 论文作者在攻读学位期间参与的科研课题的列表，按照日期从近到远排列。
-\begin{projects}
-\item 您做的课题
-\end{projects}
-\end{resume}
+  \begin{firstauthor} 
+  \item 《XXX》，载《XXX》（CSSCI），2021年第1期。
+  \end{firstauthor}
+  \begin{secondauthor}
+  \item 《XXXX》，载《XXXX》, 2021年第1期。
+  \end{secondauthor}
+  \end{resume}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 生成《学位论文出版授权书》页面，应放在最后一页

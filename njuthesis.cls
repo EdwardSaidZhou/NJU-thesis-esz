@@ -188,42 +188,42 @@
 \renewcommand*{\chaptername}{\njut@cap@chaptername}
 \renewcommand*{\appendixname}{\njut@cap@appendixname}
 \titleformat{\chapter}[hang]
-            {\centering\zihao{-1}\heiti}
+            {\centering\zihao{-2}\heiti}
             {\chaptertitlename}{0.5em}{}
 \titlespacing{\chapter}
              {0pt}
              {*-3}
              {*5}
 \titleformat{\section}[hang]
-            {\centering\zihao{-2}\heiti}
-            {\thesection}{0.5em}{}
+            {\centering\zihao{-3}\heiti}
+            {\thesection}{0em}{}
 \titlespacing{\section}
              {0pt}
              {*3.5}
              {*2.3}
 \titleformat{\subsection}[hang]
-            {\zihao{4}\bfseries}
-            {\thesubsection}{0em}{}
+            {\zihao{4}\kaishu}
+            {\hspace{2em}\thesubsection}{0em}{}
 \titlespacing{\subsection}
              {0pt}
-             {*3}
-             {*1.5}
+             {0pt}
+             {0pt}
 \titleformat{\subsubsection}[hang]
-            {\zihao{4}\kaishu}
-            {\thesubsubsection}{0em}{}
+            {\zihao{-4}\kaishu}
+            {\hspace{2em}\thesubsubsection}{0em}{}
 \titlespacing{\subsubsection}
              {0pt}
-             {*2.5}
-             {*1.5}
+             {0pt}
+             {0pt}
 \titleformat{\paragraph}[hang]
-            {\zihao{4}\bfseries}
+            {\zihao{-4}\bfseries}
             {}{0em}{}
 \titlespacing{\paragraph}
              {0pt}
              {*2}
              {*1}
 \titleformat{\subparagraph}[hang]
-            {\zihao{-4}\bfseries}
+            {\zihao{5}\bfseries}
             {}{0em}{}
 \titlespacing{\subparagraph}
              {0pt}
@@ -231,9 +231,9 @@
              {*1}
 \setcounter{secnumdepth}{4}
 \renewcommand{\thechapter}{\arabic{chapter}}
-\renewcommand{\thesection}{第\,\chinese{section}\,节}
-\renewcommand{\thesubsection}{~~~~~~~~\chinese{subsection}\,、}
-\renewcommand{\thesubsubsection}{~~~~~~~~（\,\chinese{subsubsection}\,）}
+\renewcommand{\thesection}{\chinese{section}、}
+\renewcommand{\thesubsection}{（\chinese{subsection}）}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}. }
 \captionsetup{font=small}
 \captionsetup[table]{position=above}
 \captionsetup[figure]{position=below}
@@ -357,7 +357,7 @@
     {\filright\bfseries}
     {
       \IfInteger{\thecontentslabel}
-	  {\hspace{-0.25em}\contentspush{第 \CJKnumber{\thecontentslabel} 章\ \ }}
+	  {\hspace{-0.25em}\contentspush{第\CJKnumber{\thecontentslabel}章\ \ }}
         {\hspace{-0.25em}\contentspush{\thecontentslabel\ \ }}
     }
     {}
@@ -366,8 +366,8 @@
     {\filright\bfseries}
     {
       \IfInteger{\thecontentslabel}
-	  {\hspace{-0.25em}\contentspush{\thecontentslabel\  \quad}}
-        {\hspace{1em}\contentspush{\thecontentslabel\ \ }}
+	  {\hspace{-0.25em}\contentspush{\thecontentslabel}}
+        {\hspace{1.75em}\contentspush{\thecontentslabel}}
     }
     {}
     {\titlerule*[5pt]{$\cdot$}\contentspage}
@@ -376,22 +376,22 @@
     {
       \IfInteger{\thecontentslabel}
 	  {\hspace{-0.25em}\contentspush{\thecontentslabel}}
-        {\hspace{0.25em}\contentspush{\thecontentslabel}}
+        {\hspace{3.25em}\contentspush{\thecontentslabel}}
     }
     {}
     {\titlerule*[5pt]{$\cdot$}\contentspage}
-\renewcommand*{\tableofcontents}{%
-    \if@twocolumn
-      \@restonecoltrue\onecolumn
-    \else
-      \@restonecolfalse
-    \fi
-    \nchapter{\contentsname}%
-    \@mkboth{\kaishu\MakeUppercase\contentsname}%
-            {\kaishu\MakeUppercase\contentsname}%
-    \@starttoc{toc}%
-    \if@restonecol\twocolumn\fi
-}
+%\renewcommand*{\tableofcontents}{%
+%    \if@twocolumn
+%      \@restonecoltrue\onecolumn
+%    \else
+%      \@restonecolfalse
+%    \fi
+%    \nchapter{\contentsname}%
+%    \@mkboth{\kaishu\MakeUppercase\contentsname}%
+%            {\kaishu\MakeUppercase\contentsname}%
+%    \@starttoc{toc}%
+%    \if@restonecol\twocolumn\fi
+%}
 \renewcommand*{\listoftables}{%
    {\setstretch{1.3}
     \if@twocolumn
@@ -642,30 +642,55 @@
     \cleardoublepage
   \fi
 }}
+%\newcommand*{\makeenglishtitle}{%
+% {\setstretch{1.2}
+%  \thispagestyle{empty}
+%  \begin{center}
+%    \vspace*{10mm}
+%    \bf\sffamily\zihao{1}\njut@value@en@title
+%    \vskip \stretch{1}
+%    \normalfont\rmfamily\zihao{4}\njut@cap@cover@en@by
+%    \vskip 3pt
+%    \bf\sffamily\zihao{4}\njut@value@en@author
+%    \vskip\stretch{1}
+%    \normalfont\rmfamily\zihao{4}\njut@cap@cover@en@supervisor
+%    \vskip 3pt
+%    \normalfont\sffamily\zihao{4}\njut@value@en@supervisor
+%    \vskip\stretch{1}
+%    \normalsize\rmfamily\njut@cap@cover@en@statement
+%    \vskip\stretch{2}
+%    \includegraphics[width=2.5cm]{\njut@cap@institute@logo} \\
+%    \vskip 3mm
+%    \normalfont\njut@value@en@department\\
+%    \njut@value@en@institute
+%    \vskip 30pt
+%    \normalfont\normalsize\njut@value@en@date
+%    \vspace*{10mm}
+%  \end{center}
+%  \normalfont
+%  \cleardoublepage
+%}}
 \newcommand*{\makeenglishtitle}{%
- {\setstretch{1.2}
+ {\setstretch{1.5}
   \thispagestyle{empty}
-  \begin{center}
-    \vspace*{10mm}
-    \bf\sffamily\zihao{1}\njut@value@en@title
-    \vskip \stretch{1}
-    \normalfont\rmfamily\zihao{4}\njut@cap@cover@en@by
-    \vskip 3pt
-    \bf\sffamily\zihao{4}\njut@value@en@author
-    \vskip\stretch{1}
-    \normalfont\rmfamily\zihao{4}\njut@cap@cover@en@supervisor
-    \vskip 3pt
-    \normalfont\sffamily\zihao{4}\njut@value@en@supervisor
-    \vskip\stretch{1}
-    \normalsize\rmfamily\njut@cap@cover@en@statement
-    \vskip\stretch{2}
-    \includegraphics[width=2.5cm]{\njut@cap@institute@logo} \\
-    \vskip 3mm
-    \normalfont\njut@value@en@department\\
-    \njut@value@en@institute
-    \vskip 30pt
-    \normalfont\normalsize\njut@value@en@date
-    \vspace*{10mm}
+  \begin{center}  
+    \vspace*{10mm} 
+    {\bf\CJKfontspec{FZLTSK.TTF}{\large{南京大学博士学位论文}}}\\
+    \vspace{43.2 pt}
+    {\bf\CJKfontspec{FZLTSK.TTF}{\large{\njut@value@title}}}\\
+    \vspace{43.2 pt}
+    {\bf\CJKfontspec{FZLTSK.TTF}\large{作者：{\njut@value@author}}}\\
+    \vspace{14.4 pt}
+    {\bf\CJKfontspec{FZLTSK.TTF}\large{导师：{\njut@value@supervisor}}}\\
+    \vspace{43.2 pt}
+    {\bf\CJKfontspec{FZLTSK.TTF}\large{南京大学{\njut@value@department}}}\\
+    \vspace{43.2 pt}
+    \rm\Large\njut@value@en@title\\
+    \vspace{36 pt}
+    \rm\large\njut@cap@cover@en@by~\njut@value@en@author\\
+    \rm\large\njut@cap@cover@en@supervisor~\njut@value@en@supervisor\\
+    \vspace{36 pt}
+    \rm\large\njut@value@en@department{, Nanjing Univeristy}\\
   \end{center}
   \normalfont
   \cleardoublepage
@@ -759,6 +784,9 @@
 \newenvironment{resume}{%
   \nchapter{\njut@cap@resume@chaptername}
 }{}
+\newenvironment{publish}{%
+  \nchapter{\njut@cap@publish@chaptername}
+}{}
 \newenvironment{authorinfo}{%
   \paragraph*{\njut@cap@resume@authorinfo}
 }{}
@@ -768,15 +796,27 @@
 }{%
   \end{description}
 }
-\newenvironment{publications}{%
-  \paragraph*{\njut@cap@resume@publications}
-  \begin{enumerate}[label=\arabic*., labelindent=0em, leftmargin=*]
+\newenvironment{firstauthor}{%
+  \paragraph*{\njut@cap@resume@firstauthor}
+  \begin{enumerate}[label=（\arabic*）, labelindent=0em, leftmargin=*]
+}{%
+  \end{enumerate}
+}
+\newenvironment{secondauthor}{%
+  \paragraph*{\njut@cap@resume@secondauthor}
+  \begin{enumerate}[label=（\arabic*）, labelindent=0em, leftmargin=*]
+}{%
+  \end{enumerate}
+}
+\newenvironment{translator}{%
+  \paragraph*{\njut@cap@resume@translator}
+  \begin{enumerate}[label=（\arabic*）, labelindent=0em, leftmargin=*]
 }{%
   \end{enumerate}
 }
 \newenvironment{projects}{%
   \paragraph*{\njut@cap@resume@projects}
-  \begin{enumerate}[label=\arabic*., labelindent=0em, leftmargin=*]
+  \begin{enumerate}[label=（\arabic*）, labelindent=0em, leftmargin=*]
 }{%
   \end{enumerate}
 }
