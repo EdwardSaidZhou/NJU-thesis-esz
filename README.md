@@ -25,4 +25,16 @@
 \addcontentsline{toc}{chapter}{索引}  % 把他加入目錄
 \printindex        % 一定要有這個指令才會印出索引
 
+关于参考文献样式：
+
+采用GB7714-2015，自己用的自定设置为：
+\usepackage[backend=biber,style=gb7714-2015,defernumbers=true,maxnames=3,gbfootbib=true,gbfieldtype=true,gblocal=gb7714-2015,gbnamefmt=lowercase,gbnamefmt=givenahead,giveninits=false,doi=false,isbn=false,sorting=multipinyin,sortlocale=zh__gb2312han]{biblatex}
+
+gbfootbib=true：实现国标要求的脚注标签和段落格式；实现国标要求的相同文献不输出内容。（带圈数字、缩进、同一文献多次引用等）
+gbfieldtype=true：输出 type 域，例如学位论文的 phdthesis 或博士学位论文。输出该域时做中英文区分。（引用学位论文用）
+gblocal=gb7714-2015：默认区分中英文，不同语言采用不同的字符串比如中文使用“等”“和”，而英文使用“et al.”“and”。
+gbnamefmt=lowercase,gbnamefmt=givenahead,giveninits=false：仅首字母大写，西文名字排序为“名 姓”
+doi=false,isbn=false：不输出DOI以及ISBN
+sorting=multipinyin,sortlocale=zh__gb2312han：控制排序的本地化调整方案，这里是GB-2312 顺序。（发现中文作者姓“沈”的话，默认会以“chen”这样一个多音字排入“c”段，改GB2312后暂时解决）
+
 请用XeLaTeX编译
