@@ -28,6 +28,7 @@
 关于参考文献样式：
 
 采用GB7714-2015，自己用的自定设置为：
+
 \usepackage[backend=biber,style=gb7714-2015,defernumbers=true,maxnames=3,gbfootbib=true,gbfieldtype=true,gblocal=gb7714-2015,gbnamefmt=lowercase,gbnamefmt=givenahead,giveninits=false,doi=false,isbn=false,sorting=multipinyin,sortlocale=zh__gb2312han]{biblatex}
 
 gbfootbib=true：实现国标要求的脚注标签和段落格式；实现国标要求的相同文献不输出内容。（带圈数字、缩进、同一文献多次引用等）
