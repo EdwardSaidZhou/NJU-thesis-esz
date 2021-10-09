@@ -25,6 +25,11 @@
 \addcontentsline{toc}{chapter}{索引}  % 把他加入目錄
 \printindex        % 一定要有這個指令才會印出索引
 
+血泪教训：
+不要升级最新的Tex Live 2021+版本，我自己没法用Tex Live 2021编译出来，以下是Tex Live 2020安装镜像
+链接：https://pan.baidu.com/s/1G2Hwpl4Mk0Q3HaEHx4zjng
+提取码：81dq
+
 关于参考文献样式：
 
 采用GB7714-2015，自己用的自定设置为：
