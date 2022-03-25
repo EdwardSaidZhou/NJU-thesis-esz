@@ -43,4 +43,10 @@
 5. doi=false,isbn=false：不输出DOI以及ISBN
 6. sorting=multipinyin,sortlocale=zh__gb2312han：控制排序的本地化调整方案，这里是GB-2312 顺序。（发现中文作者姓“沈”的话，默认会以“chen”这样一个多音字排入“c”段，改GB2312后暂时解决）
 
+2022.3.25更新：
+
+1. 目录重新调整：调整间距；提出“目录”
+2. 间距调整
+2. 去除前言部分
+
 请用XeLaTeX编译

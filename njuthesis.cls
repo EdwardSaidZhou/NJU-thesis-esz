@@ -95,10 +95,12 @@
     CJKbookmarks=true,
     bookmarksnumbered=true,
     bookmarksopen=true,
-    bookmarksopenlevel=0,
+    bookmarksopenlevel=1,
     breaklinks=true,
     colorlinks=true,
-    urlcolor=[RGB]{0, 92, 175},
+    %urlcolor=[RGB]{0, 0, 0},
+    %linkcolor=[RGB]{0, 0, 0},
+    urlcolor=[RGB]{0, 92, 175}, %琉璃色
     linkcolor=[RGB]{0, 92, 175},
     plainpages=false,
     pdfpagelabels,
@@ -110,7 +112,7 @@
 \RequirePackage{makeidx}
 \RequirePackage{glossaries}
 \RequirePackage{ifthen}
-\RequirePackage[perpage,symbol*]{footmisc}
+\RequirePackage[perpage]{footmisc}
 \RequirePackage{etoolbox}
 \input{njuthesis.cfg}
 \renewcommand{\textsc}[1]{{\usefont{OT1}{cmr}{m}{sc}{#1}}}
@@ -239,7 +241,7 @@
 \captionsetup[figure]{position=below}
 \floatstyle{plaintop}
 \restylefloat{table}
-\renewcommand*{\baselinestretch}{1.625}
+\renewcommand*{\baselinestretch}{1.625} %行距计算公式：1.3*想要的word倍数/1.2，1.5倍=1.625，1.2倍=1.3
 \let\njut@oldtabular\tabular
 \let\njut@endoldtabular\endtabular
 \renewenvironment{tabular}%
@@ -272,7 +274,7 @@
  \kaishu\if@mainmatter\chaptertitlename\hspace{0.5em}\fi{#1}%
 }{}}
 \renewcommand{\sectionmark}[1]{\markright{%
- \kaishu\if@mainmatter\thesection\hspace{0.5em}\fi{#1}%
+ \kaishu\if@mainmatter\thesection\hspace{0em}\fi{#1}%
 }}
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
@@ -362,36 +364,37 @@
     }
     {}
     {\titlerule*[5pt]{$\cdot$}\contentspage}
- \titlecontents{section}[2pt]
-    {\filright\bfseries}
-    {
-      \IfInteger{\thecontentslabel}
-	  {\hspace{-0.25em}\contentspush{\thecontentslabel}}
-        {\hspace{1.75em}\contentspush{\thecontentslabel}}
-    }
-    {}
-    {\titlerule*[5pt]{$\cdot$}\contentspage}
- \titlecontents{subsection}[2pt]
-    {\filright}
-    {
-      \IfInteger{\thecontentslabel}
-	  {\hspace{-0.25em}\contentspush{\thecontentslabel}}
-        {\hspace{3.25em}\contentspush{\thecontentslabel}}
-    }
-    {}
-    {\titlerule*[5pt]{$\cdot$}\contentspage}
+% \titlecontents{section}[2pt]
+%    {\filright\bfseries}
+%    {
+%      \IfInteger{\thecontentslabel}
+%	  {\hspace{-0.25em}\contentspush{\thecontentslabel}}
+%        {\hspace{1.75em}\contentspush{\thecontentslabel}}
+%    }
+%    {}
+%    {\titlerule*[5pt]{$\cdot$}\contentspage}
+% \titlecontents{subsection}[2pt]
+%    {\filright}
+%    {
+%      \IfInteger{\thecontentslabel}
+%	  {\hspace{-0.25em}\contentspush{\thecontentslabel}}
+%        {\hspace{3.25em}\contentspush{\thecontentslabel}}
+%    }
+%    {}
+%    {\titlerule*[5pt]{$\cdot$}\contentspage}
 %\renewcommand*{\tableofcontents}{%
-%    \if@twocolumn
-%      \@restonecoltrue\onecolumn
-%    \else
-%      \@restonecolfalse
-%    \fi
-%    \nchapter{\contentsname}%
-%    \@mkboth{\kaishu\MakeUppercase\contentsname}%
-%            {\kaishu\MakeUppercase\contentsname}%
-%    \@starttoc{toc}%
-%    \if@restonecol\twocolumn\fi
-%}
+%    {\setstretch{1.3}
+%     \if@twocolumn
+%       \@restonecoltrue\onecolumn
+%     \else
+%       \@restonecolfalse
+%     \fi
+%     \nchapter{\contentsname}%
+%     \@mkboth{\kaishu\MakeUppercase\contentsname}%
+%             {\kaishu\MakeUppercase\contentsname}%
+%     \@starttoc{toc}%
+%     \if@restonecol\twocolumn\fi
+% }}
 \renewcommand*{\listoftables}{%
    {\setstretch{1.3}
     \if@twocolumn
@@ -418,19 +421,19 @@
     \@starttoc{lof}%
     \if@restonecol\twocolumn\fi
 }}
-\DefineFNsymbols*{circlednumber}[text]{%
-   {\ding{192}} %
-   {\ding{193}} %
-   {\ding{194}} %
-   {\ding{195}} %
-   {\ding{196}} %
-   {\ding{197}} %
-   {\ding{198}} %
-   {\ding{199}} %
-   {\ding{200}} %
-   {\ding{201}} %
-}%
-\setfnsymbol{circlednumber}
+%\DefineFNsymbols*{circlednumber}[text]{%
+%   {\ding{192}} %
+%   {\ding{193}} %
+%   {\ding{194}} %
+%   {\ding{195}} %
+%   {\ding{196}} %
+%   {\ding{197}} %
+%   {\ding{198}} %
+%   {\ding{199}} %
+%   {\ding{200}} %
+%   {\ding{201}} %
+%}%
+%\setfnsymbol{circlednumber}
 \newcommand*{\classification}[1]{%
   \renewcommand*{\njut@value@nlc@classification}{#1}}
 \newcommand*{\securitylevel}[1]{%
@@ -675,15 +678,15 @@
   \thispagestyle{empty}
   \begin{center}  
     \vspace*{10mm} 
-    {\bf\CJKfontspec{FZLTSK.TTF}{\large{南京大学博士学位论文}}}\\
+    {\bf\CJKfontspec{FZXSSJW.TTF}{\large{南京大学博士学位论文}}}\\
     \vspace{43.2 pt}
-    {\bf\CJKfontspec{FZLTSK.TTF}{\large{\njut@value@title}}}\\
+    {\bf\CJKfontspec{FZXSSJW.TTF}{\large{\njut@value@title}}}\\
     \vspace{43.2 pt}
-    {\bf\CJKfontspec{FZLTSK.TTF}\large{作者：{\njut@value@author}}}\\
+    {\bf\CJKfontspec{FZXSSJW.TTF}\large{作者：{\njut@value@author}}}\\
     \vspace{14.4 pt}
-    {\bf\CJKfontspec{FZLTSK.TTF}\large{导师：{\njut@value@supervisor}}}\\
+    {\bf\CJKfontspec{FZXSSJW.TTF}\large{导师：{\njut@value@supervisor}}}\\
     \vspace{43.2 pt}
-    {\bf\CJKfontspec{FZLTSK.TTF}\large{南京大学{\njut@value@department}}}\\
+    {\bf\CJKfontspec{FZXSSJW.TTF}\large{南京大学{\njut@value@department}}}\\
     \vspace{43.2 pt}
     \rm\Large\njut@value@en@title\\
     \vspace{36 pt}
@@ -775,9 +778,9 @@
   \par\vspace{2ex}\noindent%
   {\bf\njut@cap@abstract@en@keywordsname{:}}~~{#1}%
 }
-\newenvironment{preface}{%
-  \nchapter{\njut@cap@preface}
-}{}
+%\newenvironment{preface}{%
+% \nchapter{\njut@cap@preface}
+%}{}
 \newenvironment{acknowledgement}{%
   \nchapter{\njut@cap@acknowledgementname}
 }{}
